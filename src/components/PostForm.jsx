@@ -21,7 +21,7 @@ function PostForm({ post }) {
   const navigate = useNavigate();
   const userData = useSelector(state => state.auth.userData)
 
-  console.log("userdata in form", userData?.$id);
+  console.log("userdata in form", userData);
   
 
   if (post) {
@@ -53,16 +53,21 @@ function PostForm({ post }) {
         console.log("data : ",data);
         console.log("userdata, ", userData);
         
-        
-        const dbPost = await dbAndStrgServices.addPost({
-          ...data,
-          userId: userData.$id
-        })
-        alert("uploaded successfully");
+        if (userData) {
+          const dbPost = await dbAndStrgServices.addPost({
+            ...data,
+            userId: userData.$id
+          });
+          alert("uploaded successfully");
         
         if (dbPost) {
-          // navigate(`/post/${dbPost.$id}`)
+          navigate(`/post/${dbPost.$id}`)
         }
+        }else{
+          alert("something wrong")
+        }
+        
+        
       }
 
     }

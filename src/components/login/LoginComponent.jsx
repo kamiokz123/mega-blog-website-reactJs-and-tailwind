@@ -28,7 +28,7 @@ function LoginComponent() {
                     console.log("userdata in login : ", userData);
 
                 }
-                // navigate("/");
+                navigate("/");
             }
         } catch (error) {
             setErrors(error.message);

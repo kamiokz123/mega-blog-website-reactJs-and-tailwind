@@ -15,8 +15,10 @@ function App() {
   useEffect(() => {
     authServices.getUserAccount().then(
       (userData) => {
+        console.log("userdata in app : ", userData);
+        
         if (userData) {
-          dispatch(login({ userData }))
+          dispatch(login( userData ))
           setDataUpdate(true)
         } else {
           dispatch(logout());

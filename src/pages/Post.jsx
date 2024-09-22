@@ -17,7 +17,7 @@ export default function Post() {
 
     const isAuthor = post && userData ? post.userId === userData.$id : false;
 
-    console.log("slug", slug);
+    console.log("slug", userData);
 
 
     useEffect(() => {

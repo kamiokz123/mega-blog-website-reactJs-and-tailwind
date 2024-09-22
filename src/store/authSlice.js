@@ -9,7 +9,7 @@ const authSlice = createSlice({
     initialState,
     reducers:{
         login : (state,action)=>{
-            // debugger;
+            debugger;
             console.log("user data in store : ", action.payload);
             
             state.status = true;

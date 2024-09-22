@@ -9,7 +9,6 @@ function Home() {
     const [loading , setLoading] = useState(true)
     const userData = useSelector((state)=> state.auth.userData);
 
-    console.log("userdata",userData);
     
 
 
@@ -43,7 +42,7 @@ function Home() {
         )
     }
 
-   return userData ? (
+   return  (
         <div className="w-full py-8 px-2 h-[70vh] overflow-scroll">
             <Container>
                 <div className="flex flex-wrap gap-4">
@@ -57,7 +56,7 @@ function Home() {
                 </div>
             </Container>
         </div>
-    ) : <>no</>
+    )
 
 }
 

@@ -43,7 +43,7 @@ function Home() {
     }
 
    return  (
-        <div className="w-full py-8 px-2 h-[70vh] overflow-scroll">
+        <div className="w-full py-8 px-2 h-[90vh] overflow-scroll">
             <Container>
                 <div className="flex flex-wrap gap-4">
                     {posts?.map((post) => {

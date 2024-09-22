@@ -22,7 +22,7 @@ function AllPosts() {
  }
 
   if (!isLoading && posts.length === 0) {
-    return (<div className="w-full h-[70vh] py-8 mt-4 text-center ">
+    return (<div className="w-full h-[80vh] py-8 mt-4 text-center ">
         <Container>
             <div className="flex flex-wrap">
                 <div className="p-2 w-full">
@@ -37,7 +37,7 @@ function AllPosts() {
 }
 
 return !isLoading ?  (
-    <div className='w-full py-8 h-[70vh] overflow-scroll'>
+    <div className='w-full py-8 h-[90vh] overflow-scroll'>
       <Container>
         <div className="flex flex-wrap">
           {

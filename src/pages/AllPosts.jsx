@@ -39,10 +39,10 @@ function AllPosts() {
 return !isLoading ?  (
     <div className='w-full py-8 h-[90vh] overflow-scroll'>
       <Container>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap justify-center">
           {
             posts?.map((post)=>(
-              <div className="p-2 w-1/4" key={post.$id}>
+              <div className="p-2 w-1/4 min-w-[250px]" key={post.$id}>
                 <PostCard {...post}/>
               </div>
             ))

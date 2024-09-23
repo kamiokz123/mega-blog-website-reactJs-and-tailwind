@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 function Home() {
     const [posts, setPosts] = useState([]);
     const [loading , setLoading] = useState(true)
-    const userData = useSelector((state)=> state.auth.userData);
 
     
 
@@ -45,11 +44,11 @@ function Home() {
    return  (
         <div className="w-full py-8 px-2 h-[90vh] overflow-scroll">
             <Container>
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-4 justify-center">
                     {posts?.map((post) => {
                         console.log("post in map", post);
                         
-                        return (<div key={post.$id} className="p2 w-1/4">
+                        return (<div key={post.$id}  className="p2 min-w-[250px] w-1/4">
                             <PostCard {...post} />
                         </div>)
                     })}

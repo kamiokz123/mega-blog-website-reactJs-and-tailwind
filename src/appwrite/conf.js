@@ -100,6 +100,22 @@ class DbAndStrgService {
         }
     }
 
+    async getCurrentUserPostList(user_id){
+        try {
+            return await this.database.listDocuments(
+                config.appwriteDatabaseId, // databaseId
+                config.appwriteCollectionId,
+                [
+                    Query.equal("status", "active"),
+                    Query.equal("userId",user_id)
+                ] // queries (optional)
+            );
+        } catch (error) {
+            console.log("appwrite service err :: get post list error :", error);
+            return false
+        }
+    }
+
     async uploadFile(file){
         try {
              return await this.storage.createFile(

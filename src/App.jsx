@@ -19,10 +19,8 @@ function App() {
         
         if (userData) {
           dispatch(login( userData ))
-          setDataUpdate(true)
         } else {
           dispatch(logout());
-          setDataUpdate(true)
         }
       }
     ).finally(

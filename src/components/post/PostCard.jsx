@@ -1,16 +1,34 @@
 import React from 'react';
 import dbAndStrgServices from '../../appwrite/conf.js';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import Button from '../Button.jsx';
 
 function PostCard(
     {
         $id,
         featuredImage,
-        title
+        title,
+        userId
     }
 ) {
-    
-    
+    const userData = useSelector((state) => state.auth.userData);
+
+    console.log("userdata in card", userData.$id);
+    console.log("id in card ", userId);
+
+
+
+
+    const deletePost = () => {
+        dbAndStrgServices.deletePost($id).then((status) => {
+            if (status) {
+                dbAndStrgServices.deleteFile(featuredImage);
+                navigate("/");
+            }
+        });
+    };
+
     return (
         <Link to={`/post/${$id}`}>
             <div className="w-full  bg-gray-100 rounded-xl p-4 justify-center items-center flex flex-col ">
@@ -20,6 +38,19 @@ function PostCard(
                 <h2>
                     {title}
                 </h2>
+                {userData.$id === userId && (
+                    <div className=" py-2 m-2 right-6 top-6">
+                        <Link to={`/edit-post/${$id}`}>
+                            <Button bgColor="bg-green-500" className="mr-3">
+                                Edit
+                            </Button>
+                        </Link>
+                        <Button bgColor="bg-red-500" onClick={deletePost}>
+                            Delete
+                        </Button>
+                    </div>
+                )
+                }
             </div>
         </Link>
     )
